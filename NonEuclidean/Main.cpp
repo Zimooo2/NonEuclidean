@@ -9,6 +9,8 @@ int APIENTRY WinMain(HINSTANCE hCurrentInst, HINSTANCE hPreviousInst, LPSTR lpsz
   AttachConsole(GetCurrentProcessId());
   freopen("CON", "w", stdout);
 
+
+
 #else
   //Run the main engine
   Engine engine;
