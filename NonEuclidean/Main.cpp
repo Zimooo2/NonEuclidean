@@ -10,7 +10,6 @@ int APIENTRY WinMain(HINSTANCE hCurrentInst, HINSTANCE hPreviousInst, LPSTR lpsz
   freopen("CON", "w", stdout);
 
 
-
 #endif
   //Run the main engine
   Engine engine;
