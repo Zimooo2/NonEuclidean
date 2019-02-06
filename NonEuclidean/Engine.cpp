@@ -10,6 +10,7 @@
 #include <cmath>
 #include <iostream>
 #include <algorithm>
+#include "Testing.h"
 
 Engine* GH_ENGINE = nullptr;
 Player* GH_PLAYER = nullptr;
@@ -49,6 +50,10 @@ Engine::Engine() : hWnd(NULL), hDC(NULL), hRC(NULL) {
   LoadScene(0);
 
   sky.reset(new Sky);
+
+#ifdef _DEBUG
+  tests();
+#endif
 }
 
 Engine::~Engine() {

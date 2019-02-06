@@ -11,10 +11,10 @@ int APIENTRY WinMain(HINSTANCE hCurrentInst, HINSTANCE hPreviousInst, LPSTR lpsz
 
 
 
-#else
+#endif
   //Run the main engine
   Engine engine;
   return engine.Run();
-#endif
+
 }
 
