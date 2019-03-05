@@ -77,7 +77,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\zimoo\Desktop\NonEuclid\NonEuclidean\NonEuclidean\x64\Debug;C:\Users\zimoo\Desktop\NonEuclid\NonEuclidean\glew-2.1.0\lib\Release\x64;C:\Users\zimoo\Desktop\NonEuclid\NonEuclidean\glew-2.1.0\include;C:\Users\zimoo\Desktop\NonEuclid\NonEuclidean\NonEuclidean;$(IncludePath)</IncludePath>
+    <IncludePath>..\NonEuclidean\x64\Debug;..\glew-2.1.0\lib\Release\x64;..\glew-2.1.0\include;..\NonEuclidean;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -99,7 +99,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;C:\Users\zimoo\Desktop\NonEuclid\NonEuclidean\NonEuclidean\x64\Debug;C:\Users\zimoo\Desktop\NonEuclid\NonEuclidean\glew-2.1.0\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;..\NonEuclidean\x64\Debug;..\glew-2.1.0\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>OpenGL32.lib;glew32s.lib;camera.obj;..\NonEuclidean\x64\Debug\camera.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

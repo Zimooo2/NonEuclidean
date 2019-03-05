@@ -1,5 +1,3 @@
-﻿  Skipping... (no relevant changes detected)
-  unittest1.cpp
-..\NonEuclidean\x64\Debug\camera.obj : warning LNK4042: object specified more than once; extras ignored
-     Creating library C:\Users\zimoo\Desktop\NonEuclid\NonEuclidean\x64\Debug\TestProject.lib and object C:\Users\zimoo\Desktop\NonEuclid\NonEuclidean\x64\Debug\TestProject.exp
-  TestProject.vcxproj -> C:\Users\zimoo\Desktop\NonEuclid\NonEuclidean\x64\Debug\TestProject.dll
+﻿..\NonEuclidean\x64\Debug\camera.obj : warning LNK4042: object specified more than once; extras ignored
+     Creating library C:\Users\Johannes\Desktop\NonEuclidean\x64\Debug\TestProject.lib and object C:\Users\Johannes\Desktop\NonEuclidean\x64\Debug\TestProject.exp
+  TestProject.vcxproj -> C:\Users\Johannes\Desktop\NonEuclidean\x64\Debug\TestProject.dll
