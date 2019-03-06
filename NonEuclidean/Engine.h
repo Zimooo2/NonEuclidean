@@ -28,10 +28,10 @@ public:
   const Player& GetPlayer() const { return *player; }
   float NearestPortalDist() const;
 
+  void DestroyGLObjects();
 private:
   void CreateGLWindow();
   void InitGLObjects();
-  void DestroyGLObjects();
   void SetupInputs();
   void ConfineCursor();
   void ToggleFullscreen();
