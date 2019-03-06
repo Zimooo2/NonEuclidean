@@ -8,6 +8,7 @@
 Mesh::Mesh(const char* fname) {
   //Open the file for reading
   std::ifstream fin(std::string("Meshes/") + fname);
+  
   if (!fin) {
     return;
   }

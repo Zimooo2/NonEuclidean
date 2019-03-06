@@ -100,7 +100,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;..\NonEuclidean\x64\Debug;..\glew-2.1.0\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>OpenGL32.lib;glew32s.lib;camera.obj;collider.obj;engine.obj;framebuffer.obj;input.obj;level1.obj;level2.obj;level3.obj;level4.obj;level5.obj;level6.obj;main.obj;mesh.obj;object.obj;physical.obj;player.obj;portal.obj;resources.obj;shader.obj;texture.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OpenGL32.lib;glew32s.lib;camera.obj;collider.obj;engine.obj;framebuffer.obj;input.obj;level1.obj;level2.obj;level3.obj;level4.obj;level5.obj;level6.obj;main.obj;mesh.obj;object.obj;physical.obj;player.obj;portal.obj;Resources.obj;shader.obj;texture.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -158,6 +158,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="PhysicalTest.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
