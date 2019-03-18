@@ -12,11 +12,11 @@ public:
 
   Tunnel(Type type) : type(type) {
     if (type == SCALE) {
-      mesh = AquireMesh("tunnel_scale.obj");
+      mesh = AquireMesh("tunnel_scale.obj", true);
     } else if (type == SLOPE) {
-      mesh = AquireMesh("tunnel_slope.obj");
+      mesh = AquireMesh("tunnel_slope.obj", true);
     } else {
-      mesh = AquireMesh("tunnel.obj");
+      mesh = AquireMesh("tunnel.obj", true);
     }
     shader = AquireShader("texture");
     texture = AquireTexture("checker_gray.bmp");

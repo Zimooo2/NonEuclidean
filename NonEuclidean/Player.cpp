@@ -58,12 +58,10 @@ void Player::Update() {
   }
   Move(moveF, moveL);
 
-#if 0
   //Jumping
   if (onGround && GH_INPUT->key[VK_SPACE]) {
-    velocity.y += 2.0f * p_scale;
+    velocity.y += 5.0f * p_scale;
   }
-#endif
 
   //Reset ground state after update finishes
   onGround = false;

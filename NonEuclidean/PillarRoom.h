@@ -5,7 +5,7 @@
 class PillarRoom : public Object {
 public:
   PillarRoom() {
-    mesh = AquireMesh("pillar_room.obj");
+    mesh = AquireMesh("pillar_room.obj", true);
     shader = AquireShader("texture");
     texture = AquireTexture("three_room.bmp");
     scale = Vector3(1.1f);

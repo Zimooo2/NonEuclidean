@@ -261,12 +261,10 @@ void Engine::Render(const Camera& cam, GLuint curFBO, const Portal* skipPortal) 
     GH_REC_LEVEL += 1;
   }
   
-#if 0
   //Debug draw colliders
   for (size_t i = 0; i < vObjects.size(); ++i) {
     vObjects[i]->DebugDraw(cam);
   }
-#endif
 }
 
 LRESULT Engine::WindowProc(HWND hCurWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {

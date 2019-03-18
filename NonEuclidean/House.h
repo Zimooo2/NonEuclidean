@@ -5,7 +5,7 @@
 class House : public Object {
 public:
   House(const char* tex) {
-    mesh = AquireMesh("square_rooms.obj");
+    mesh = AquireMesh("square_rooms.obj", true);
     shader = AquireShader("texture");
     texture = AquireTexture(tex);
     scale = Vector3(1.0f, 3.0f, 1.0f);

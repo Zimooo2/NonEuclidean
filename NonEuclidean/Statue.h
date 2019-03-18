@@ -5,7 +5,7 @@
 class Statue : public Object {
 public:
   Statue(const char* model) {
-    mesh = AquireMesh(model);
+    mesh = AquireMesh(model, false);
     shader = AquireShader("texture");
     texture = AquireTexture("gold.bmp");
   }

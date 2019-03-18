@@ -9,7 +9,7 @@ class Mesh {
 public:
   static const int NUM_VBOS = 3;
 
-  Mesh(const char* fname);
+  Mesh(const char* fname, bool generateCollider);
   ~Mesh();
 
   void Draw();

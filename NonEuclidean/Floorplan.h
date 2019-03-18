@@ -6,7 +6,7 @@
 class Floorplan : public Object {
 public:
   Floorplan() {
-    mesh = AquireMesh("floorplan.obj");
+    mesh = AquireMesh("floorplan.obj", false);
     shader = AquireShader("texture_array");
     texture = AquireTexture("floorplan_textures.bmp", 4, 4);
     scale = Vector3(0.1524f); //6-inches to meters

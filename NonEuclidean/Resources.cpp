@@ -1,11 +1,11 @@
 #include "Resources.h"
 #include <unordered_map>
 
-std::shared_ptr<Mesh> AquireMesh(const char* name) {
+std::shared_ptr<Mesh> AquireMesh(const char* name, bool generateMesh) {
   static std::unordered_map<std::string, std::weak_ptr<Mesh>> map;
   std::weak_ptr<Mesh>& mesh = map[std::string(name)];
   if (mesh.expired()) {
-    std::shared_ptr<Mesh> newMesh(new Mesh(name));
+    std::shared_ptr<Mesh> newMesh(new Mesh(name, generateMesh));
     mesh = newMesh;
     return newMesh;
   } else {

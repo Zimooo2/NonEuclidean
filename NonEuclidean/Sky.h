@@ -5,7 +5,7 @@
 class Sky {
 public:
   Sky() {
-    mesh = AquireMesh("quad.obj");
+    mesh = AquireMesh("quad.obj", true);
     shader = AquireShader("sky");
   }
 

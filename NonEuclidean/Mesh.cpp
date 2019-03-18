@@ -5,7 +5,7 @@
 #include <string>
 #include <cassert>
 
-Mesh::Mesh(const char* fname) {
+Mesh::Mesh(const char* fname, bool generateCollider) {
   //Open the file for reading
   std::ifstream fin(std::string("Meshes/") + fname);
   
@@ -39,20 +39,23 @@ Mesh::Mesh(const char* fname) {
         uv_palette.push_back(w);
         is3DTex = true;
       }
-    } else if (line.find("c ") == 0) {
-      uint32_t a = 0, b = 0, c = 0;
-      if (line[2] == '*') {
-        const uint32_t v_ix = (uint32_t)vert_palette.size() / 3;
-        a = v_ix - 2; b = v_ix - 1; c = v_ix;
-      } else {
-        std::stringstream ss(line.c_str() + 2);
-        ss >> a >> b >> c;
-      }
-      const Vector3 v1(&vert_palette[(a - 1) * 3]);
-      const Vector3 v2(&vert_palette[(b - 1) * 3]);
-      const Vector3 v3(&vert_palette[(c - 1) * 3]);
-      colliders.push_back(Collider(v1, v2, v3));
-    } else if (line.find("f ") == 0) {
+    }
+	else if (line.find("c ") == 0 && !generateCollider) {
+		uint32_t a = 0, b = 0, c = 0;
+		if (line[2] == '*') {
+			const uint32_t v_ix = (uint32_t)vert_palette.size() / 3;
+			a = v_ix - 2; b = v_ix - 1; c = v_ix;
+		}
+		else {
+			std::stringstream ss(line.c_str() + 2);
+			ss >> a >> b >> c;
+		}
+		const Vector3 v1(&vert_palette[(a - 1) * 3]);
+		const Vector3 v2(&vert_palette[(b - 1) * 3]);
+		const Vector3 v3(&vert_palette[(c - 1) * 3]);
+		colliders.push_back(Collider(v1, v2, v3));
+	}
+	else if (line.find("f ") == 0) {
       //Count the slashes
       int num_slashes = 0;
       size_t last_slash_ix = 0;
@@ -119,12 +122,38 @@ Mesh::Mesh(const char* fname) {
         assert(false);
         continue;
       }
+	  //Add face to list
+	  AddFace(vert_palette, uv_palette, a, at, b, bt, c, ct, is3DTex);
+	  if (isQuad) {
+		  AddFace(vert_palette, uv_palette, c, ct, d, dt, a, at, is3DTex);
+	  }
 
-      //Add face to list
-      AddFace(vert_palette, uv_palette, a, at, b, bt, c, ct, is3DTex);
-      if (isQuad) {
-        AddFace(vert_palette, uv_palette, c, ct, d, dt, a, at, is3DTex);
-      }
+	  if (generateCollider) {
+		  const Vector3 v1(&vert_palette[(a - 1) * 3]);
+		  const Vector3 v2(&vert_palette[(b - 1) * 3]);
+		  const Vector3 v3(&vert_palette[(c - 1) * 3]);
+		  const Vector3 ab = v2 - v1;
+		  const Vector3 bc = v3 - v2;
+		  const Vector3 ca = v1 - v3;
+		  const float magAB = ab.MagSq();
+		  const float magBC = bc.MagSq();
+		  const float magCA = ca.MagSq();
+		  if (magAB >= magBC && magAB >= magCA) {
+			  if (std::abs((bc*0.5f).Dot((ca*0.5f))) / ((bc*0.5f).Mag() * (ca*0.5f).Mag()) < 0.001f)
+				  colliders.push_back(Collider(v1, v2, v3));
+		  }
+		  else if (magBC >= magAB && magBC >= magCA) {
+			  if (std::abs((ca*0.5f).Dot(ab*0.5f)) / ((ca*0.5f).Mag() * (ab*0.5f).Mag()) < 0.001f)
+				  colliders.push_back(Collider(v1, v2, v3));
+		  }
+		  else {
+			  if (std::abs((ab*0.5f).Dot(bc*0.5f)) / ((ab*0.5f).Mag() * (bc*0.5f).Mag()) < 0.001f)
+				  colliders.push_back(Collider(v1, v2, v3));
+		  }
+	  }
+
+
+	  
     }
   }
 

@@ -6,9 +6,9 @@ class Ground : public Object {
 public:
   Ground(bool slope=false) {
     if (slope) {
-      mesh = AquireMesh("ground_slope.obj");
+      mesh = AquireMesh("ground_slope.obj", false);
     } else {
-      mesh = AquireMesh("ground.obj");
+      mesh = AquireMesh("ground.obj", false);
     }
     shader = AquireShader("texture");
     texture = AquireTexture("checker_green.bmp");

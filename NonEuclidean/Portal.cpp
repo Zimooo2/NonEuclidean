@@ -4,7 +4,7 @@
 #include <iostream>
 
 Portal::Portal() : front(this), back(this) {
-  mesh = AquireMesh("double_quad.obj");
+  mesh = AquireMesh("double_quad.obj", false);
   shader = AquireShader("portal");
   errShader = AquireShader("pink");
 }
